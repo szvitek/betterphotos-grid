@@ -4,13 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "compile": "sass --no-source-map ./assets/sass/main.scss ./assets/style.css",
-    "watch": "sass --watch --no-source-map ./assets/sass/main.scss ./assets/style.css"
+    "watch": "sass --watch --no-source-map ./assets/sass/main.scss ./assets/style.css",
+    "build:compile": "sass --no-source-map ./assets/sass/main.scss ./assets/compiled.css",
+    "build:prefixes": "postcss assets/compiled.css --use autoprefixer --output assets/prefixed.css",
+    "build:optimize": "csso assets/prefixed.css --output assets/style.css"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "csso-cli": "^4.0.2",
+    "postcss": "^8.4.38",
+    "postcss-cli": "^11.0.0",
     "sass": "^1.72.0"
   }
 }
